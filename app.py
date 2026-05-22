@@ -16,89 +16,79 @@ def home():
     fact = random.choice(facts)
 
     return f"""
+    <html>
 
-<!DOCTYPE html>
-<html>
+    <head>
 
-<head>
+    <title>Single Use Plastics</title>
 
-<title>Single Use Plastics</title>
+    <style>
 
-<style>
+    body {{
+        font-family: Arial;
+        background-color: lightblue;
+        padding: 20px;
+    }}
 
-body {{
-    font-family: Arial, sans-serif;
-    background-color: #d9f5ff;
-    padding: 20px;
-}}
+    section {{
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }}
 
-section {{
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}}
+    </style>
 
-h1 {{
-    color: darkblue;
-}}
+    </head>
 
-</style>
+    <body>
 
-</head>
+    <h1>Single Use Plastics</h1>
 
-<body>
+    <section>
+    <h2>What Are They?</h2>
 
-<h1>Single Use Plastics</h1>
+    <p>
+    Single use plastics are products designed to be utilised once before disposal.
+    Examples include bottles, wrappers and plastic bags.
+    </p>
 
-<section>
+    </section>
 
-<h2>What Are Single Use Plastics?</h2>
+    <section>
 
-<p>
-Single use plastics are products designed to be utilised once before disposal.
-Examples include bottles, wrappers, straws and carrier bags.
-</p>
+    <h2>The Consequences</h2>
 
-</section>
+    <p>
+    Plastic pollution devastates ecosystems and harms marine wildlife.
+    </p>
 
-<section>
+    </section>
 
-<h2>The Consequences</h2>
+    <section>
 
-<p>
-Plastic pollution devastates ecosystems and threatens biodiversity.
-Marine organisms frequently consume plastic accidentally.
-</p>
+    <h2>How To Reduce Them</h2>
 
-</section>
+    <ul>
+        <li>Use reusable bottles</li>
+        <li>Recycle conscientiously</li>
+        <li>Avoid disposable straws</li>
+        <li>Carry fabric shopping bags</li>
+    </ul>
 
-<section>
+    </section>
 
-<h2>How To Reduce Them</h2>
+    <section>
 
-<ul>
-<li>Use reusable bottles.</li>
-<li>Carry fabric shopping bags.</li>
-<li>Avoid disposable straws.</li>
-<li>Recycle conscientiously.</li>
-</ul>
+    <h2>Random Fact</h2>
 
-</section>
+    <p>{fact}</p>
 
-<section>
+    </section>
 
-<h2>Random Fact</h2>
-
-<p>{fact}</p>
-
-</section>
-
-</body>
-
-</html>
-
-"""
+    </body>
+    </html>
+    """
 
 if __name__ == "__main__":
-    app.run(port=0)
+    app.run(debug=False)
