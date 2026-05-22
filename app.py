@@ -1,125 +1,111 @@
 from flask import Flask
 import os
+import random
 
 app = Flask(__name__)
 
+facts = [
+    "A plastic bottle can take hundreds of years to decompose.",
+    "Millions of tonnes of plastic enter oceans every year.",
+    "Microplastics have been discovered in drinking water.",
+    "Marine animals often mistake plastic for food."
+]
+
 @app.route("/")
 def home():
-    return """
-    <!DOCTYPE html>
-    <html>
 
-    <head>
-        <title>Single Use Plastics</title>
+    random_fact = random.choice(facts)
 
-        <style>
+    return f"""
 
-            body{
-                font-family: Arial, sans-serif;
-                background-color: lightblue;
-                padding: 20px;
-            }
+<!DOCTYPE html>
+<html lang="en">
 
-            h1{
-                color: darkblue;
-            }
+<head>
 
-            section{
-                background: white;
-                padding: 20px;
-                margin-bottom: 20px;
-                border-radius: 10px;
-            }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            button{
-                padding: 10px;
-                background-color: darkblue;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+<title>Single Use Plastics</title>
 
-        </style>
+<style>
 
-    </head>
+body{{
+    font-family: Arial, sans-serif;
+    background-color: #d9f5ff;
+    margin: 0;
+    padding: 20px;
+}}
 
-    <body>
+h1{{
+    color: darkblue;
+}}
 
-        <h1>Single Use Plastics</h1>
+section{{
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}}
 
-        <section>
+</style>
 
-            <h2>What Are Single Use Plastics?</h2>
+</head>
 
-            <p>
-                Single use plastics are products designed to be utilised once before disposal.
-                Examples include plastic bottles, carrier bags and takeaway packaging.
-            </p>
+<body>
 
-        </section>
+<h1>Single Use Plastics</h1>
 
-        <section>
+<section>
 
-            <h2>The Consequences</h2>
+<h2>What Are Single Use Plastics?</h2>
 
-            <p>
-                Plastic pollution devastates ecosystems and threatens marine organisms.
-                Numerous animals mistakenly consume plastic, causing injury and death.
-            </p>
+<p>
+Single use plastics are products designed to be utilised once before disposal.
+Examples include bottles, straws, wrappers and carrier bags.
+</p>
 
-        </section>
+</section>
 
-        <section>
+<section>
 
-            <h2>How To Reduce Them</h2>
+<h2>The Consequences</h2>
 
-            <ul>
-                <li>Use reusable water bottles.</li>
-                <li>Carry fabric shopping bags.</li>
-                <li>Avoid disposable straws.</li>
-                <li>Recycle conscientiously.</li>
-            </ul>
+<p>
+Plastic pollution devastates ecosystems and threatens marine wildlife.
+Many animals accidentally consume plastic, causing severe injury.
+</p>
 
-            <button onclick="showFact()">
-                Click For A Fact
-            </button>
+</section>
 
-            <p id="fact"></p>
+<section>
 
-        </section>
+<h2>How To Reduce Plastic Usage</h2>
 
-        <script>
+<ul>
+<li>Use reusable water bottles.</li>
+<li>Carry fabric shopping bags.</li>
+<li>Avoid disposable straws.</li>
+<li>Recycle conscientiously.</li>
+</ul>
 
-            function showFact(){
+</section>
 
-                let facts = [
+<section>
 
-                    "A plastic bottle can take centuries to decompose.",
+<h2>Random Fact</h2>
 
-                    "Millions of tonnes of plastic enter oceans annually.",
+<p>{random_fact}</p>
 
-                    "Microplastics have been discovered in drinking water.",
+</section>
 
-                    "Marine creatures frequently mistake plastic for food."
+</body>
+</html>
 
-                ];
-
-                let randomFact =
-                    facts[Math.floor(Math.random() * facts.length)];
-
-                document.getElementById("fact").innerHTML = randomFact;
-            }
-
-        </script>
-
-    </body>
-
-    </html>
-    """
+"""
 
 if __name__ == "__main__":
 
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))
 
     app.run(host="0.0.0.0", port=port)
