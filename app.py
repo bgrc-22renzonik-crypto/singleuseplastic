@@ -2,42 +2,45 @@ import streamlit as st
 
 st.set_page_config(page_title="Single Use Plastics", layout="centered")
 
-st.title("Single Use Plastics Awareness 🌍")
+st.title("Single Use Plastics 🌍")
 
-st.header("What are single use plastics?")
+st.header("Definition and Overview")
 st.write(
     """
-    Single use plastics are items designed to be used once before being thrown away.
-    Examples include plastic bottles, straws, carrier bags and food packaging.
+    Single use plastics constitute a category of materials manufactured for transient, one-time utilisation
+    prior to disposal. These artefacts include items such as plastic straws, carrier bags, beverage bottles,
+    and food packaging. Despite their apparent convenience, they represent a profoundly unsustainable
+    component of modern consumer behaviour.
     """
 )
 
-st.header("Consequences")
+st.header("Environmental Consequences")
 st.write(
     """
-    These plastics pollute oceans, harm wildlife, and break down into microplastics
-    that enter the food chain and even drinking water.
+    The environmental ramifications of single use plastic consumption are both extensive and enduring.
+    Such materials contribute significantly to global pollution, particularly within marine ecosystems,
+    where wildlife frequently misidentifies plastic debris as food. This leads to ingestion, injury, and
+    in many cases, mortality. Furthermore, plastic waste undergoes gradual fragmentation into microplastics,
+    which permeate aquatic systems and ultimately infiltrate the human food chain.
     """
 )
 
-st.header("How to reduce them")
+st.header("Mitigation Strategies")
 st.write(
     """
-    - Use reusable bottles  
-    - Carry fabric shopping bags  
-    - Avoid plastic straws  
-    - Recycle properly  
+    The reduction of single use plastic consumption necessitates deliberate behavioural modification at both
+    individual and collective levels. Practical interventions include the adoption of reusable containers,
+    the utilisation of fabric-based alternatives to plastic bags, the avoidance of disposable utensils, and
+    the implementation of rigorous recycling practices. Collectively, these measures can substantially mitigate
+    environmental degradation.
     """
 )
 
-st.header("Random Fact")
-
-facts = [
-    "A plastic bottle can take hundreds of years to decompose.",
-    "Millions of tonnes of plastic enter the oceans every year.",
-    "Microplastics have been found in human drinking water.",
-    "Sea animals often mistake plastic for food."
-]
-
-if st.button("Show a fact"):
-    st.success(facts[0])
+st.header("Concluding Reflection")
+st.write(
+    """
+    In conclusion, whilst the prevalence of single use plastics presents a significant environmental challenge,
+    it is not an insurmountable one. Through sustained awareness and incremental lifestyle adjustments,
+    society can meaningfully reduce its ecological footprint and safeguard environmental integrity for future generations.
+    """
+)
