@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
@@ -20,7 +21,7 @@ def home():
 
 body{
     font-family: Arial, sans-serif;
-    background-color: #d8f3ff;
+    background-color: #d9f5ff;
     margin: 0;
     padding: 0;
     color: #222;
@@ -78,64 +79,68 @@ footer{
 <body>
 
 <header>
-    <h1>Single Use Plastics</h1>
 
-    <p>
-        Environmental awareness for young people
-    </p>
+<h1>Single Use Plastics</h1>
+
+<p>
+Raising awareness about environmental preservation
+</p>
+
 </header>
 
 <section>
 
-    <h2>What Are Single Use Plastics?</h2>
+<h2>What Are Single Use Plastics?</h2>
 
-    <p>
-        Single use plastics are products designed to be utilised once before disposal.
-        Examples include plastic bottles, carrier bags, food wrappers and straws.
-    </p>
+<p>
+Single use plastics are products manufactured to be utilised once before disposal.
+Examples include plastic bottles, carrier bags, takeaway containers and straws.
+</p>
 
-    <p>
-        These products persist within the environment for centuries and contribute
-        to substantial pollution across oceans and urban environments.
-    </p>
-
-</section>
-
-<section>
-
-    <h2>The Consequences</h2>
-
-    <p>
-        Plastic pollution devastates ecosystems and threatens biodiversity.
-        Numerous marine creatures consume plastic accidentally, causing injury and death.
-    </p>
-
-    <button onclick="showFact()">
-        Click For A Fact
-    </button>
-
-    <p id="fact"></p>
+<p>
+These materials persist within the environment for centuries and contribute
+to substantial pollution across ecosystems.
+</p>
 
 </section>
 
 <section>
 
-    <h2>How To Reduce Plastic Usage</h2>
+<h2>The Consequences</h2>
 
-    <ul>
-        <li>Use reusable bottles.</li>
-        <li>Carry fabric shopping bags.</li>
-        <li>Avoid disposable cutlery.</li>
-        <li>Recycle conscientiously.</li>
-        <li>Purchase products with minimal packaging.</li>
-    </ul>
+<p>
+Plastic pollution devastates marine environments and threatens biodiversity.
+Many animals mistakenly consume plastic, causing severe injury and death.
+</p>
+
+<button onclick="showFact()">
+Click For A Fact
+</button>
+
+<p id="fact"></p>
+
+</section>
+
+<section>
+
+<h2>How To Reduce Plastic Usage</h2>
+
+<ul>
+<li>Use reusable bottles.</li>
+<li>Carry fabric shopping bags.</li>
+<li>Avoid disposable cutlery and straws.</li>
+<li>Recycle conscientiously.</li>
+<li>Choose products with minimal packaging.</li>
+</ul>
 
 </section>
 
 <footer>
-    <p>
-        Protect oceans • Preserve wildlife 🌍
-    </p>
+
+<p>
+Protect oceans • Preserve wildlife 🌍
+</p>
+
 </footer>
 
 <script>
@@ -144,13 +149,13 @@ function showFact(){
 
     let facts = [
 
-        "A plastic bottle can take centuries to decompose.",
+        "A plastic bottle may require centuries to decompose.",
 
         "Millions of tonnes of plastic enter oceans annually.",
 
-        "Microplastics have been discovered in drinking water.",
+        "Microplastics have been found in drinking water.",
 
-        "Many marine animals mistake plastic for food."
+        "Marine animals frequently mistake plastic for food."
 
     ];
 
@@ -168,4 +173,5 @@ function showFact(){
 """
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
