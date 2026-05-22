@@ -1,5 +1,4 @@
 from flask import Flask
-import os
 import random
 
 app = Flask(__name__)
@@ -27,20 +26,20 @@ def home():
 
 <style>
 
-body{{
+body {{
     font-family: Arial, sans-serif;
     background-color: #d9f5ff;
     padding: 20px;
 }}
 
-section{{
+section {{
     background-color: white;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
 }}
 
-h1{{
+h1 {{
     color: darkblue;
 }}
 
@@ -102,4 +101,4 @@ Marine organisms frequently consume plastic accidentally.
 """
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+    app.run(port=0)
