@@ -1,175 +1,125 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return """
+    <!DOCTYPE html>
+    <html>
 
-<!DOCTYPE html>
-<html lang="en">
+    <head>
+        <title>Single Use Plastics</title>
 
-<head>
+        <style>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            body{
+                font-family: Arial, sans-serif;
+                background-color: lightblue;
+                padding: 20px;
+            }
 
-<title>Single Use Plastics Awareness</title>
+            h1{
+                color: darkblue;
+            }
 
-<style>
+            section{
+                background: white;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 10px;
+            }
 
-body{
-    font-family: Arial, sans-serif;
-    background-color: #d9f5ff;
-    margin: 0;
-    padding: 0;
-    color: #222;
-}
+            button{
+                padding: 10px;
+                background-color: darkblue;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 
-header{
-    background-color: #0088aa;
-    color: white;
-    text-align: center;
-    padding: 30px;
-}
+        </style>
 
-section{
-    background-color: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-}
+    </head>
 
-h2{
-    color: #006d86;
-}
+    <body>
 
-button{
-    background-color: #0088aa;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        <h1>Single Use Plastics</h1>
 
-button:hover{
-    background-color: #005f73;
-}
+        <section>
 
-#fact{
-    margin-top: 15px;
-    font-weight: bold;
-    color: darkred;
-}
+            <h2>What Are Single Use Plastics?</h2>
 
-footer{
-    background-color: #0088aa;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-}
+            <p>
+                Single use plastics are products designed to be utilised once before disposal.
+                Examples include plastic bottles, carrier bags and takeaway packaging.
+            </p>
 
-</style>
+        </section>
 
-</head>
+        <section>
 
-<body>
+            <h2>The Consequences</h2>
 
-<header>
+            <p>
+                Plastic pollution devastates ecosystems and threatens marine organisms.
+                Numerous animals mistakenly consume plastic, causing injury and death.
+            </p>
 
-<h1>Single Use Plastics</h1>
+        </section>
 
-<p>
-Raising awareness about environmental preservation
-</p>
+        <section>
 
-</header>
+            <h2>How To Reduce Them</h2>
 
-<section>
+            <ul>
+                <li>Use reusable water bottles.</li>
+                <li>Carry fabric shopping bags.</li>
+                <li>Avoid disposable straws.</li>
+                <li>Recycle conscientiously.</li>
+            </ul>
 
-<h2>What Are Single Use Plastics?</h2>
+            <button onclick="showFact()">
+                Click For A Fact
+            </button>
 
-<p>
-Single use plastics are products manufactured to be utilised once before disposal.
-Examples include plastic bottles, carrier bags, takeaway containers and straws.
-</p>
+            <p id="fact"></p>
 
-<p>
-These materials persist within the environment for centuries and contribute
-to substantial pollution across ecosystems.
-</p>
+        </section>
 
-</section>
+        <script>
 
-<section>
+            function showFact(){
 
-<h2>The Consequences</h2>
+                let facts = [
 
-<p>
-Plastic pollution devastates marine environments and threatens biodiversity.
-Many animals mistakenly consume plastic, causing severe injury and death.
-</p>
+                    "A plastic bottle can take centuries to decompose.",
 
-<button onclick="showFact()">
-Click For A Fact
-</button>
+                    "Millions of tonnes of plastic enter oceans annually.",
 
-<p id="fact"></p>
+                    "Microplastics have been discovered in drinking water.",
 
-</section>
+                    "Marine creatures frequently mistake plastic for food."
 
-<section>
+                ];
 
-<h2>How To Reduce Plastic Usage</h2>
+                let randomFact =
+                    facts[Math.floor(Math.random() * facts.length)];
 
-<ul>
-<li>Use reusable bottles.</li>
-<li>Carry fabric shopping bags.</li>
-<li>Avoid disposable cutlery and straws.</li>
-<li>Recycle conscientiously.</li>
-<li>Choose products with minimal packaging.</li>
-</ul>
+                document.getElementById("fact").innerHTML = randomFact;
+            }
 
-</section>
+        </script>
 
-<footer>
+    </body>
 
-<p>
-Protect oceans • Preserve wildlife 🌍
-</p>
-
-</footer>
-
-<script>
-
-function showFact(){
-
-    let facts = [
-
-        "A plastic bottle may require centuries to decompose.",
-
-        "Millions of tonnes of plastic enter oceans annually.",
-
-        "Microplastics have been found in drinking water.",
-
-        "Marine animals frequently mistake plastic for food."
-
-    ];
-
-    let randomFact = facts[Math.floor(Math.random() * facts.length)];
-
-    document.getElementById("fact").innerHTML = randomFact;
-}
-
-</script>
-
-</body>
-
-</html>
-
-"""
+    </html>
+    """
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=0)
+
+    port = int(os.environ.get("PORT", 5000))
+
+    app.run(host="0.0.0.0", port=port)
