@@ -1,94 +1,141 @@
 from flask import Flask
-import random
 
 app = Flask(__name__)
 
-facts = [
-    "A plastic bottle can take centuries to decompose.",
-    "Millions of tonnes of plastic enter oceans annually.",
-    "Microplastics have been discovered in drinking water.",
-    "Marine wildlife frequently mistakes plastic for food."
-]
-
 @app.route("/")
+
 def home():
 
-    fact = random.choice(facts)
+    return """
 
-    return f"""
-    <html>
+<!DOCTYPE html>
 
-    <head>
+<html>
 
-    <title>Single Use Plastics</title>
+<head>
 
-    <style>
+<title>Single Use Plastics</title>
 
-    body {{
-        font-family: Arial;
-        background-color: lightblue;
-        padding: 20px;
-    }}
+<style>
 
-    section {{
-        background: white;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-    }}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #cfefff;
+    padding: 20px;
+}
 
-    </style>
+h1{
+    color: darkblue;
+}
 
-    </head>
+section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
-    <body>
+button{
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    <h1>Single Use Plastics</h1>
+</style>
 
-    <section>
-    <h2>What Are They?</h2>
+</head>
 
-    <p>
-    Single use plastics are products designed to be utilised once before disposal.
-    Examples include bottles, wrappers and plastic bags.
-    </p>
+<body>
 
-    </section>
+<h1>Single Use Plastics</h1>
 
-    <section>
+<section>
 
-    <h2>The Consequences</h2>
+<h2>What Are Single Use Plastics?</h2>
 
-    <p>
-    Plastic pollution devastates ecosystems and harms marine wildlife.
-    </p>
+<p>
+Single use plastics are products designed to be utilised once before disposal.
+Examples include plastic bottles, wrappers, straws and carrier bags.
+</p>
 
-    </section>
+<p>
+Although they may appear convenient, they persist within the environment
+for centuries and contribute to extensive pollution.
+</p>
 
-    <section>
+</section>
 
-    <h2>How To Reduce Them</h2>
+<section>
 
-    <ul>
-        <li>Use reusable bottles</li>
-        <li>Recycle conscientiously</li>
-        <li>Avoid disposable straws</li>
-        <li>Carry fabric shopping bags</li>
-    </ul>
+<h2>The Consequences</h2>
 
-    </section>
+<p>
+Plastic pollution devastates ecosystems and threatens biodiversity.
+Marine organisms frequently mistake plastic for nourishment,
+causing injury and death.
+</p>
 
-    <section>
+<p>
+Furthermore, plastics gradually fragment into microplastics,
+infinitesimal particles capable of contaminating water supplies.
+</p>
 
-    <h2>Random Fact</h2>
+</section>
 
-    <p>{fact}</p>
+<section>
 
-    </section>
+<h2>How To Reduce Plastic Usage</h2>
 
-    </body>
-    </html>
-    """
+<ul>
+<li>Use reusable bottles.</li>
+<li>Carry fabric shopping bags.</li>
+<li>Avoid disposable straws.</li>
+<li>Recycle conscientiously.</li>
+<li>Purchase products with minimal packaging.</li>
+</ul>
+
+<button onclick="showFact()">
+
+Click For A Fact
+
+</button>
+
+<p id="fact"></p>
+
+</section>
+
+<script>
+
+function showFact(){
+
+    let facts = [
+
+        "A plastic bottle can take centuries to decompose.",
+
+        "Millions of tonnes of plastic enter oceans annually.",
+
+        "Microplastics have been discovered in drinking water.",
+
+        "Marine wildlife frequently mistakes plastic for food."
+
+    ];
+
+    let randomFact = facts[Math.floor(Math.random() * facts.length)];
+
+    document.getElementById("fact").innerHTML = randomFact;
+}
+
+</script>
+
+</body>
+
+</html>
+
+"""
 
 if __name__ == "__main__":
-    app.run(debug=False)
+
+    app.run(host="0.0.0.0")
