@@ -40,10 +40,6 @@ section{
     border-radius: 10px;
 }
 
-h1{
-    margin: 0;
-}
-
 h2{
     color: #006d86;
 }
@@ -55,7 +51,6 @@ button{
     padding: 12px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 button:hover{
@@ -76,10 +71,6 @@ footer{
     margin-top: 20px;
 }
 
-ul{
-    line-height: 1.8;
-}
-
 </style>
 
 </head>
@@ -87,13 +78,11 @@ ul{
 <body>
 
 <header>
-
     <h1>Single Use Plastics</h1>
 
     <p>
-        Raising awareness about environmental preservation
+        Environmental awareness for young people
     </p>
-
 </header>
 
 <section>
@@ -101,31 +90,24 @@ ul{
     <h2>What Are Single Use Plastics?</h2>
 
     <p>
-        Single use plastics are products manufactured to be utilised once 
-        before disposal. Examples include disposable bottles, plastic straws, 
-        takeaway containers and carrier bags.
+        Single use plastics are products designed to be utilised once before disposal.
+        Examples include plastic bottles, carrier bags, food wrappers and straws.
     </p>
 
     <p>
-        Although they may appear convenient, these materials persist within 
-        the environment for centuries and contribute to extensive pollution.
+        These products persist within the environment for centuries and contribute
+        to substantial pollution across oceans and urban environments.
     </p>
 
 </section>
 
 <section>
 
-    <h2>The Consequences Of Plastic Pollution</h2>
+    <h2>The Consequences</h2>
 
     <p>
-        Plastic pollution devastates ecosystems and threatens biodiversity. 
-        Marine organisms frequently mistake plastic for nourishment, resulting 
-        in severe injury or death.
-    </p>
-
-    <p>
-        Furthermore, plastics fragment into microplastics, infinitesimal 
-        particles capable of contaminating oceans, rivers and food supplies.
+        Plastic pollution devastates ecosystems and threatens biodiversity.
+        Numerous marine creatures consume plastic accidentally, causing injury and death.
     </p>
 
     <button onclick="showFact()">
@@ -138,29 +120,22 @@ ul{
 
 <section>
 
-    <h2>How To Reduce Single Use Plastics</h2>
+    <h2>How To Reduce Plastic Usage</h2>
 
     <ul>
-        <li>Carry a reusable water bottle.</li>
-        <li>Use fabric shopping bags.</li>
-        <li>Avoid disposable cutlery and straws.</li>
+        <li>Use reusable bottles.</li>
+        <li>Carry fabric shopping bags.</li>
+        <li>Avoid disposable cutlery.</li>
         <li>Recycle conscientiously.</li>
         <li>Purchase products with minimal packaging.</li>
     </ul>
 
-    <p>
-        Even diminutive lifestyle alterations can culminate in substantial 
-        environmental improvement.
-    </p>
-
 </section>
 
 <footer>
-
     <p>
-        Protect oceans • Preserve wildlife • Reduce pollution 🌍
+        Protect oceans • Preserve wildlife 🌍
     </p>
-
 </footer>
 
 <script>
@@ -169,13 +144,13 @@ function showFact(){
 
     let facts = [
 
-        "A plastic bottle may require 450 years to decompose.",
+        "A plastic bottle can take centuries to decompose.",
 
         "Millions of tonnes of plastic enter oceans annually.",
 
-        "Microplastics have been discovered in drinking water worldwide.",
+        "Microplastics have been discovered in drinking water.",
 
-        "Many marine animals accidentally consume plastic."
+        "Many marine animals mistake plastic for food."
 
     ];
 
@@ -193,4 +168,4 @@ function showFact(){
 """
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=3000)
